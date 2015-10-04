@@ -1,0 +1,79 @@
+
+
+ctglfw
+=======
+
+CT GLFW Wrapper is part of the Terca C++ libraries.
+GLFW is a third party library, CT GLFW Wrapper
+merely provides a set of convenient classes.
+
+Installing
+==========
+
+This library uses a standard makefile.
+You will need to have the following
+libraries installed before attempting
+to install ctglfw:
+	-OpenGL
+	-GLFW
+	-FTGL
+If these libraries are not installed
+with "standard" paths, you may have
+to modify the makefile.
+Note that if you are not on a GNU/Linux
+system, you will probably need to change
+the install directories. You may also
+need to change the compiler. The default
+is gcc.
+To build and install use:
+
+make
+sudo make install
+
+Please note that you need to do:
+sudo make uninstall
+before reinstalling if you decide to make
+any changes to CT GLFW Wrapper.
+
+Usage
+=====
+
+There is example code in test.cpp.
+Consulte this first, then check the
+".h" files for available functions.
+Please note that unless you choose
+to modify "cttextbox.cpp", there
+must be a "font.ttf" file for the
+font in any executables local
+directory.
+
+Libraries
+=========
+
+Terca C++ GLFW Wrapper uses OpenGL, GLFW, and
+FTGL. Licenses for GLFW and FTGL can be found
+in GLFW_LICENSE and FTGL_LICENSE files,
+respectively. OpenGL (as far as I can tell)
+is free to use in applications.
+
+License
+=======
+
+Copyright 2015 Carter Turnbaugh
+
+This file is part of Terca C++ GLFW Wrapper.
+
+Terca C++ GLFW Wrapper is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Terca C++ GLFW Wrapper is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Terca C++ GLFW Wrapper.  If not, see <http://www.gnu.org/licenses/>.
+
+
