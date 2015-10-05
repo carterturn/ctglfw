@@ -19,6 +19,7 @@
 
 #include "cttextbox.h"
 #include <unistd.h>
+#include <cmath>
 #include <FTGL/ftgl.h>
 
 std::string text;
@@ -42,7 +43,7 @@ void checkkeys(GLFWwindow * window, int key, int scancode, int action, int mods)
 std::string glfwTextbox(std::string initial){
 	text = initial;
 	done = false;
-	GLFWwindow * window = glfwCreateWindow(initial.length() * 60, 60, "Enter Text", NULL, NULL);
+	GLFWwindow * window = glfwCreateWindow(initial.length() * 10, 60, "Enter Text", NULL, NULL);
 
 	if(!window){
 		return "ERROR: Unable to create window\n";
@@ -66,9 +67,12 @@ std::string glfwTextbox(std::string initial){
 		
 		glColor3f(0.5f, 0.5f, 0.5f);
 
-		glRasterPos2i(-1, 0);
+		glRasterPos2f(-1, 0);
 
-		font->Render(text.c_str());
+		std::string rendertext = " " + text;
+		font->Render(rendertext.c_str());
+
+		glfwSetWindowSize(window, fmax(text.length() * 12, 60), 60);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
