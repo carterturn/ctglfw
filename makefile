@@ -6,14 +6,16 @@ build: $(TEXTBOX)
 	$(CPP) -c -fPIC $(TEXTBOX) --std=c++11 -lftgl -I/usr/include/freetype2
 	$(CPP) -shared -Wl,-soname,libctglfw.so -o libctglfw.so *.o
 install:
-	cp libctglfw.so /usr/lib/
-	mkdir /usr/include/ctglfw
-	cp cttextbox.h /usr/include/ctglfw/
-	cp font.ttf /etc/ctfont.ttf
+	cp -f libctglfw.so /usr/lib/
+	[ -d /usr/include/ctglfw ] || mkdir /usr/include/ctglfw
+	cp -f cttextbox.h /usr/include/ctglfw/
+	cp -f font.ttf /etc/ctfont.ttf
 uninstall:
-	rm /usr/lib/libctglfw.so
-	rm /usr/include/ctglfw/cttextbox.h
-	rm /etc/ctfont.ttf
-	rmdir /usr/include/ctglfw
+	rm -f /usr/lib/libctglfw.so
+	rm -f /usr/include/ctglfw/cttextbox.h
+	rm -f /etc/ctfont.ttf
+	[ -d /usr/include/ctglfw ] && rmdir /usr/include/ctglfw
 clean:
-	rm *.o *.so *.gch
+	for file in $$(ls *.o); do rm $$file; done
+	for file in $$(ls *.so); do rm $$file; done
+	for file in $$(ls *.gch); do rm $$file; done
