@@ -54,7 +54,7 @@ std::string glfwTextbox(std::string initial){
 	glfwSetKeyCallback(window, checkkeys);
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 
-	FTGLPixmapFont *font = new FTGLPixmapFont("font.ttf");
+	FTGLPixmapFont *font = new FTGLPixmapFont("/etc/ctfont.ttf");
 
 	if(font->Error()){
 		return "ERROR: unable to find font\n";
